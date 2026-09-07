@@ -1,0 +1,214 @@
+{
+    "result": [
+        {
+            "active_time": 1771439606,
+            "biz_type": 18,
+            "category": "ywbj",
+            "create_time": 1771439354,
+            "icon": "smart/icon/ay1553762254781PxBGe/16557940515fc0211a689.jpg",
+            "id": "ebbbca7eeb802ce26eu84j",
+            "ip": "79.116.216.52",
+            "lat": "40.41",
+            "local_key": "~96~U*5c^jp_'E4U",
+            "lon": "-3.66",
+            "model": "Smart Smoke Detector",
+            "name": "Smart Smoke Detector",
+            "online": true,
+            "owner_id": "153403630",
+            "product_id": "fprvejaabb2h4cg0",
+            "product_name": "Smart Smoke Detector",
+            "status": [
+                {
+                    "code": "smoke_sensor_status",
+                    "value": "normal"
+                },
+                {
+                    "code": "checking_result",
+                    "value": "check_success"
+                },
+                {
+                    "code": "battery_state",
+                    "value": "high"
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "az1681856439534DRWBS",
+            "update_time": 1788525837,
+            "uuid": "06e98c975d816319"
+        },
+        {
+            "active_time": 1770838139,
+            "biz_type": 18,
+            "category": "kg",
+            "create_time": 1770838139,
+            "icon": "smart/icon/ay15327721968035jwx9/4c762ff00573f806c6e64d0ee3383761.png",
+            "id": "eb74b723a73cdfac85swat",
+            "ip": "79.116.216.52",
+            "lat": "40.41",
+            "local_key": "_;[|Re.AFuM2GSQb",
+            "lon": "-3.66",
+            "model": "WM-104-M",
+            "name": "Lampara",
+            "online": false,
+            "owner_id": "153403630",
+            "product_id": "u0qalv4jsoknlahj",
+            "product_name": "Matter Smart Switch Module",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": false
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "relay_status",
+                    "value": "power_off"
+                },
+                {
+                    "code": "cycle_time",
+                    "value": ""
+                },
+                {
+                    "code": "random_time",
+                    "value": ""
+                },
+                {
+                    "code": "switch_inching",
+                    "value": ""
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "az1681856439534DRWBS",
+            "update_time": 1788524374,
+            "uuid": "9afa45d8f59d3a9b"
+        },
+        {
+            "active_time": 1767854022,
+            "biz_type": 18,
+            "category": "wk",
+            "create_time": 1767815170,
+            "icon": "smart/icon/ay15327721968035jwx9/089e969593d6b6c89038dd50885e9333.png",
+            "id": "eba40c3bb8205604f1mzip",
+            "ip": "188.26.212.124",
+            "lat": "40.41",
+            "local_key": "Q;SGIxCix&WFwJGy",
+            "lon": "-3.66",
+            "model": "",
+            "name": "Calefaccion",
+            "online": true,
+            "owner_id": "153403630",
+            "product_id": "poyd7riopdrhyawj",
+            "product_name": "Smart Thermostat",
+            "status": [
+                {
+                    "code": "Power",
+                    "value": true
+                },
+                {
+                    "code": "TempSet",
+                    "value": 40
+                },
+                {
+                    "code": "TempCurrent",
+                    "value": 59
+                },
+                {
+                    "code": "Mode",
+                    "value": "1"
+                },
+                {
+                    "code": "ECO",
+                    "value": false
+                },
+                {
+                    "code": "ChildLock",
+                    "value": false
+                },
+                {
+                    "code": "program",
+                    "value": "AAUwAAgkHgseHg0eABEwABYoAAYsAAgsHgsoHg0oABEoABYeAAYsAAgsHgsoHg0oABEoABYe"
+                },
+                {
+                    "code": "floorTemp",
+                    "value": 54
+                },
+                {
+                    "code": "tempSwitch",
+                    "value": "0"
+                },
+                {
+                    "code": "floortempFunction",
+                    "value": true
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "az1681856439534DRWBS",
+            "update_time": 1788431764,
+            "uuid": "4720dca8e717ae69"
+        },
+        {
+            "active_time": 1763318174,
+            "biz_type": 18,
+            "category": "kg",
+            "create_time": 1763318174,
+            "icon": "smart/icon/ay15522876175557bVit/28e671e14ffa04ef55e6ca4a9e06e477.png",
+            "id": "ebe12c4a781afdc937ssxc",
+            "ip": "188.26.212.115",
+            "lat": "40.41",
+            "local_key": "bzte}`)tDB$OOPb=",
+            "lon": "-3.66",
+            "model": "WiFi Switch T",
+            "name": "Lampara",
+            "online": true,
+            "owner_id": "153403630",
+            "product_id": "xego3sx4z7e0qxaf",
+            "product_name": "WiFi Switch T",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": false
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "relay_status",
+                    "value": "power_off"
+                },
+                {
+                    "code": "cycle_time",
+                    "value": ""
+                },
+                {
+                    "code": "random_time",
+                    "value": ""
+                },
+                {
+                    "code": "switch_inching",
+                    "value": ""
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "az1681856439534DRWBS",
+            "update_time": 1788431751,
+            "uuid": "3f4d301460bcfc51"
+        }
+    ],
+    "success": true,
+    "t": 1788598132562,
+    "tid": "9ec9a0ffa90611f1b8ecfa4ad2c6b2c1",
+    "file": {
+        "name": "tuya-raw.json",
+        "description": "Full raw list of Tuya devices.",
+        "account": "w8acvj9rkjskhqkmv93q",
+        "date": "2026-09-05T10:48:52.599368",
+        "tinytuya": "1.20.0"
+    }
+}

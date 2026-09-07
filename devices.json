@@ -1,0 +1,266 @@
+[
+    {
+        "name": "Smart Smoke Detector",
+        "id": "ebbbca7eeb802ce26eu84j",
+        "key": "~96~U*5c^jp_'E4U",
+        "mac": "3c:0b:59:46:4f:75",
+        "uuid": "06e98c975d816319",
+        "sn": "SCB3S-006300066",
+        "category": "ywbj",
+        "product_name": "Smart Smoke Detector",
+        "product_id": "fprvejaabb2h4cg0",
+        "biz_type": 18,
+        "model": "Smart Smoke Detector",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/ay1553762254781PxBGe/16557940515fc0211a689.jpg",
+        "mapping": {
+            "1": {
+                "code": "smoke_sensor_status",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "alarm",
+                        "normal"
+                    ]
+                }
+            },
+            "9": {
+                "code": "checking_result",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "checking",
+                        "check_success",
+                        "check_failure",
+                        "others"
+                    ]
+                }
+            },
+            "14": {
+                "code": "battery_state",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "low",
+                        "middle",
+                        "high"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "name": "Lampara",
+        "id": "eb74b723a73cdfac85swat",
+        "key": "_;[|Re.AFuM2GSQb",
+        "mac": "fc:3c:d7:c4:26:9a",
+        "uuid": "9afa45d8f59d3a9b",
+        "sn": "100156621001FF",
+        "category": "kg",
+        "product_name": "Matter Smart Switch Module",
+        "product_id": "u0qalv4jsoknlahj",
+        "biz_type": 18,
+        "model": "WM-104-M",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/ay15327721968035jwx9/4c762ff00573f806c6e64d0ee3383761.png",
+        "mapping": {
+            "1": {
+                "code": "switch_1",
+                "type": "Boolean",
+                "values": {}
+            },
+            "7": {
+                "code": "countdown_1",
+                "type": "Integer",
+                "values": {
+                    "unit": "s",
+                    "min": 0,
+                    "max": 86400,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "14": {
+                "code": "relay_status",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "power_off",
+                        "power_on",
+                        "last"
+                    ]
+                }
+            },
+            "17": {
+                "code": "cycle_time",
+                "type": "String",
+                "values": "{}"
+            },
+            "18": {
+                "code": "random_time",
+                "type": "String",
+                "values": "{}"
+            },
+            "19": {
+                "code": "switch_inching",
+                "type": "String",
+                "values": "{}"
+            }
+        }
+    },
+    {
+        "name": "Calefaccion",
+        "id": "eba40c3bb8205604f1mzip",
+        "key": "Q;SGIxCix&WFwJGy",
+        "mac": "f8:17:2d:bd:6d:6a",
+        "uuid": "4720dca8e717ae69",
+        "sn": "10017791300209",
+        "category": "wk",
+        "product_name": "Smart Thermostat",
+        "product_id": "poyd7riopdrhyawj",
+        "biz_type": 18,
+        "model": "",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/ay15327721968035jwx9/089e969593d6b6c89038dd50885e9333.png",
+        "mapping": {
+            "1": {
+                "code": "Power",
+                "type": "Boolean",
+                "values": {}
+            },
+            "2": {
+                "code": "TempSet",
+                "type": "Integer",
+                "values": {
+                    "unit": "\u00b0C",
+                    "min": 10,
+                    "max": 70,
+                    "scale": 1,
+                    "step": 5
+                }
+            },
+            "3": {
+                "code": "TempCurrent",
+                "type": "Integer",
+                "values": {
+                    "unit": "\u00b0C",
+                    "min": 0,
+                    "max": 100,
+                    "scale": 1,
+                    "step": 5
+                }
+            },
+            "4": {
+                "code": "Mode",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "0",
+                        "1"
+                    ]
+                }
+            },
+            "5": {
+                "code": "ECO",
+                "type": "Boolean",
+                "values": {}
+            },
+            "6": {
+                "code": "ChildLock",
+                "type": "Boolean",
+                "values": {}
+            },
+            "101": {
+                "code": "program",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "102": {
+                "code": "floorTemp",
+                "type": "Integer",
+                "values": {
+                    "unit": "\u00b0C",
+                    "min": 0,
+                    "max": 198,
+                    "scale": 1,
+                    "step": 5
+                }
+            },
+            "103": {
+                "code": "tempSwitch",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "0",
+                        "1"
+                    ]
+                }
+            },
+            "104": {
+                "code": "floortempFunction",
+                "type": "Boolean",
+                "values": {}
+            }
+        }
+    },
+    {
+        "name": "Lampara",
+        "id": "ebe12c4a781afdc937ssxc",
+        "key": "bzte}`)tDB$OOPb=",
+        "mac": "80:64:7c:6e:bd:8b",
+        "uuid": "3f4d301460bcfc51",
+        "category": "kg",
+        "product_name": "WiFi Switch T",
+        "product_id": "xego3sx4z7e0qxaf",
+        "biz_type": 18,
+        "model": "WiFi Switch T",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/ay15522876175557bVit/28e671e14ffa04ef55e6ca4a9e06e477.png",
+        "mapping": {
+            "1": {
+                "code": "switch_1",
+                "type": "Boolean",
+                "values": {}
+            },
+            "7": {
+                "code": "countdown_1",
+                "type": "Integer",
+                "values": {
+                    "unit": "s",
+                    "min": 0,
+                    "max": 86400,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "14": {
+                "code": "relay_status",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "power_off",
+                        "power_on",
+                        "last"
+                    ]
+                }
+            },
+            "17": {
+                "code": "cycle_time",
+                "type": "String",
+                "values": "{}"
+            },
+            "18": {
+                "code": "random_time",
+                "type": "String",
+                "values": "{}"
+            },
+            "19": {
+                "code": "switch_inching",
+                "type": "String",
+                "values": "{}"
+            }
+        }
+    }
+]

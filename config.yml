@@ -1,0 +1,7 @@
+name: MOES-Thermostat
+packageKey: moes-thermostat
+description: MOES BHT-002 WiFi Thermostat - Tuya LAN
+vendorSupportInformation: MOES
+permissions:
+  lan: {}
+  discovery: {}
