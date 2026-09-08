@@ -1,0 +1,29 @@
+{
+    "name": "Child Lock",
+    "attributes": {
+        "childLock": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "enum": ["on", "off"]
+                    }
+                },
+                "additionalProperties": false,
+                "required": ["value"]
+            },
+            "enumCommands": []
+        }
+    },
+    "commands": {
+        "on": {
+            "name": "on",
+            "arguments": []
+        },
+        "off": {
+            "name": "off",
+            "arguments": []
+        }
+    }
+}
