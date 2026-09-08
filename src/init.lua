@@ -115,7 +115,8 @@ local function connect_and_negotiate(device)
         return false
     end
 
-    local resp, recv_err = sock:receive(2048)
+    -- local resp, recv_err = sock:receive(2048)
+    local resp, recv_err = tuya35.read_message(sock)
     if not resp then
         log.error("Negociación paso 1 (sin respuesta): " .. tostring(recv_err))
         sock:close()
@@ -173,7 +174,8 @@ local function send_data_command(device, cmd, json_payload, retry)
         return send_data_command(device, cmd, json_payload, false)
     end
 
-    local resp, recv_err = sock:receive(2048)
+    -- local resp, recv_err = sock:receive(2048)
+    local resp, recv_err = tuya35.read_message(sock)
     if not resp then
         log.warn("Sin respuesta (" .. tostring(recv_err) .. "), reconectando")
         if retry == false then return nil, recv_err end

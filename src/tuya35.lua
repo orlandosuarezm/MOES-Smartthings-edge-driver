@@ -144,6 +144,34 @@ function tuya35.parse_message(key, raw)
     return { seqno = seqno, cmd = cmd, payload = plaintext }
 end
 
+-- Lee un mensaje wire COMPLETO del socket. sock:receive(N) en LuaSocket/cosock
+-- exige EXACTAMENTE N bytes (no "hasta N disponibles" como Python socket.recv()).
+-- Por eso NO se puede pedir un tamaño fijo grande (ej. 2048): el termostato manda
+-- respuestas de ~100-120 bytes y el socket se queda esperando el resto hasta el
+-- timeout, aunque la red y el protocolo funcionen perfecto. Hay que leer primero
+-- el header fijo de 18 bytes, sacar la longitud declarada del cuerpo, y leer
+-- exactamente esa cantidad + los 4 bytes del sufijo 6699.
+function tuya35.read_message(sock)
+    local header, herr = sock:receive(18)
+    if not header then
+        return nil, "header: " .. tostring(herr)
+    end
+
+    local prefix = unpack_u32(header, 1)
+    if prefix ~= PREFIX then
+        return nil, string.format("prefix inesperado: 0x%08X", prefix)
+    end
+
+    local length = unpack_u32(header, 15)
+
+    local rest, rerr = sock:receive(length + 4) -- cuerpo declarado + sufijo 6699
+    if not rest then
+        return nil, "cuerpo: " .. tostring(rerr)
+    end
+
+    return header .. rest
+end
+
 -- Quita, si está presente, el header de versión "3.5"+12 nulos de un
 -- payload de datos ya descifrado (y con el retcode ya quitado por
 -- parse_message). Solo aplica a respuestas de comandos de datos.
