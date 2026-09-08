@@ -22,7 +22,7 @@ preferences:
       stringType: text
       minLength: 7
       maxLength: 15
-      default: "192.168.1.136"
+      default: "192.168.1.137"
   - name: "devicePort"
     title: "Puerto"
     description: "Puerto TCP del termostato (normalmente 6668)"
@@ -41,7 +41,7 @@ preferences:
       stringType: text
       minLength: 1
       maxLength: 64
-      default: "changeme"
+      default: "eba40c3bb8205604f1mzip"
   - name: "localKey"
     title: "Local Key (Tuya)"
     description: "Clave local AES de 16 bytes obtenida de Tuya IoT Platform"
@@ -51,4 +51,4 @@ preferences:
       stringType: text
       minLength: 16
       maxLength: 44
-      default: "0000000000000000"
+      default: "Q;SGIxCix&WFwJGy"
