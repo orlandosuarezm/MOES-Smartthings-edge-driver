@@ -27,8 +27,14 @@ math.randomseed(os.time() + math.floor(os.clock() * 1000000))
 --[[
   MAPEO DE DPs - confirmado con datos reales del termostato vía protocolo 3.5:
   {"dps":{"1":true,"2":40,"3":59,"4":"1","5":false,"6":false,"102":54,"103":"0","104":true}}
-  NOTA: los valores de temperatura son grados literales, SIN dividir entre 10
-  (el campo "scale" del export de Tuya no aplica aquí - confirmado con datos reales).
+  NOTA sobre escala (corregido - la nota anterior era incorrecta): los DPs 2
+  (SETPOINT_TARGET) y 3 (CURRENT_TEMP) están en unidades de MEDIO grado
+  (raw = grados reales x 2), NO en grados literales ni con el "scale" del
+  export de Tuya (que sería /10). Confirmado comparando la pantalla física
+  del termostato contra los DPs: raw=59 -> pantalla 29.5°C, raw=11 (tras
+  fijar setpoint) -> pantalla 5.5°C. Se divide entre 2 al leer y se
+  multiplica por 2 al escribir (ver apply_dps_to_device y
+  handle_set_heating_setpoint).
 --]]
 local DP = {
     POWER           = 1,
@@ -197,15 +203,18 @@ local function apply_dps_to_device(device, dps)
         device:emit_event(on and caps.switch.switch.on() or caps.switch.switch.off())
     end
 
+    -- El dispositivo trabaja en unidades de medio grado (raw = grados reales x 2),
+    -- confirmado comparando la pantalla física del termostato con los DPs recibidos
+    -- (raw=59 -> pantalla 29.5°C; raw=11 -> pantalla 5.5°C). Se divide entre 2 al leer.
     if dps[tostring(DP.CURRENT_TEMP)] ~= nil then
         device:emit_event(caps.temperatureMeasurement.temperature({
-            value = tonumber(dps[tostring(DP.CURRENT_TEMP)]), unit = "C"
+            value = tonumber(dps[tostring(DP.CURRENT_TEMP)]) / 2, unit = "C"
         }))
     end
 
     if dps[tostring(DP.SETPOINT_TARGET)] ~= nil then
         device:emit_event(caps.thermostatHeatingSetpoint.heatingSetpoint({
-            value = tonumber(dps[tostring(DP.SETPOINT_TARGET)]), unit = "C"
+            value = tonumber(dps[tostring(DP.SETPOINT_TARGET)]) / 2, unit = "C"
         }))
     end
 
@@ -267,17 +276,24 @@ end
 
 local function handle_switch_on(driver, device, command)
     send_dp_set(device, DP.POWER, true)
+    -- actualización optimista: refleja el cambio al instante en la app,
+    -- en vez de esperar al poll_status de confirmación 1s después
+    -- (que implica una renegociación de sesión completa con el termostato).
+    device:emit_event(caps.switch.switch.on())
     device.thread:call_with_delay(1, function() poll_status(device) end)
 end
 
 local function handle_switch_off(driver, device, command)
     send_dp_set(device, DP.POWER, false)
+    device:emit_event(caps.switch.switch.off())
     device.thread:call_with_delay(1, function() poll_status(device) end)
 end
 
 local function handle_set_heating_setpoint(driver, device, command)
     local temp = command.args.setpoint
-    send_dp_set(device, DP.SETPOINT_TARGET, temp)
+    -- Convertir grados reales a unidades de medio grado del dispositivo (x2).
+    -- send_dp_set trunca a entero, así que la granularidad real es de 0.5°C.
+    send_dp_set(device, DP.SETPOINT_TARGET, temp * 2)
     -- actualización optimista; se corrige en el próximo poll si el
     -- dispositivo redondeó o rechazó el valor
     device:emit_event(caps.thermostatHeatingSetpoint.heatingSetpoint({ value = temp, unit = "C" }))
