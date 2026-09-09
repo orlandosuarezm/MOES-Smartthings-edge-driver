@@ -1,0 +1,30 @@
+{
+    "dashboard": {
+        "states": [
+            {
+                "label": "{{childLock.value}}",
+                "alternatives": []
+            }
+        ],
+        "actions": [],
+        "basicPlus": []
+    },
+    "detailView": [
+        {
+            "label": "Child Lock",
+            "displayType": "toggleSwitch",
+            "toggleSwitch": {
+                "command": {
+                    "on": "on",
+                    "off": "off"
+                },
+                "state": {
+                    "value": "childLock.value",
+                    "on": "on",
+                    "off": "off",
+                    "label": "{{childLock.value}}"
+                }
+            }
+        }
+    ]
+}

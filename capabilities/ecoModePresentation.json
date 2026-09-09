@@ -1,0 +1,30 @@
+{
+    "dashboard": {
+        "states": [
+            {
+                "label": "{{ecoMode.value}}",
+                "alternatives": []
+            }
+        ],
+        "actions": [],
+        "basicPlus": []
+    },
+    "detailView": [
+        {
+            "label": "Eco Mode",
+            "displayType": "toggleSwitch",
+            "toggleSwitch": {
+                "command": {
+                    "on": "on",
+                    "off": "off"
+                },
+                "state": {
+                    "value": "ecoMode.value",
+                    "on": "on",
+                    "off": "off",
+                    "label": "{{ecoMode.value}}"
+                }
+            }
+        }
+    ]
+}
