@@ -41,13 +41,15 @@ local DP = {
     SETPOINT_TARGET = 2,
     CURRENT_TEMP    = 3,
     ECO             = 5,
+    CHILD_LOCK      = 6,
 }
 
--- ID de custom capability: REEMPLAZA "REPLACE_NAMESPACE" por tu namespace real.
--- Déjalo en false hasta crear la capability y agregarla al profile.
-local ENABLE_CUSTOM_CAPS = false
-local ECO_CAP_ID = "REPLACE_NAMESPACE.ecoMode"
+-- IDs de custom capabilities (namespace real ya asignado a la cuenta).
+local ENABLE_CUSTOM_CAPS = true
+local ECO_CAP_ID = "moneymedia27295.ecoMode"
 local ECO_ATTR = "ecoMode"
+local CHILD_LOCK_CAP_ID = "moneymedia27295.childLock"
+local CHILD_LOCK_ATTR = "childLock"
 
 local POLL_INTERVAL_SECONDS = 30
 
@@ -222,6 +224,11 @@ local function apply_dps_to_device(device, dps)
         local on = dps[tostring(DP.ECO)]
         device:emit_event(caps[ECO_CAP_ID][ECO_ATTR]({ value = on and "on" or "off" }))
     end
+
+    if ENABLE_CUSTOM_CAPS and dps[tostring(DP.CHILD_LOCK)] ~= nil then
+        local on = dps[tostring(DP.CHILD_LOCK)]
+        device:emit_event(caps[CHILD_LOCK_CAP_ID][CHILD_LOCK_ATTR]({ value = on and "on" or "off" }))
+    end
 end
 
 local function poll_status(device)
@@ -301,10 +308,22 @@ end
 
 local function handle_eco_on(driver, device, command)
     send_dp_set(device, DP.ECO, true)
+    device:emit_event(caps[ECO_CAP_ID][ECO_ATTR]({ value = "on" }))
 end
 
 local function handle_eco_off(driver, device, command)
     send_dp_set(device, DP.ECO, false)
+    device:emit_event(caps[ECO_CAP_ID][ECO_ATTR]({ value = "off" }))
+end
+
+local function handle_child_lock_on(driver, device, command)
+    send_dp_set(device, DP.CHILD_LOCK, true)
+    device:emit_event(caps[CHILD_LOCK_CAP_ID][CHILD_LOCK_ATTR]({ value = "on" }))
+end
+
+local function handle_child_lock_off(driver, device, command)
+    send_dp_set(device, DP.CHILD_LOCK, false)
+    device:emit_event(caps[CHILD_LOCK_CAP_ID][CHILD_LOCK_ATTR]({ value = "off" }))
 end
 
 -- ===== Lifecycle handlers =====
@@ -364,6 +383,10 @@ if ENABLE_CUSTOM_CAPS then
     driver_capability_handlers[ECO_CAP_ID] = {
         ["on"] = handle_eco_on,
         ["off"] = handle_eco_off,
+    }
+    driver_capability_handlers[CHILD_LOCK_CAP_ID] = {
+        ["on"] = handle_child_lock_on,
+        ["off"] = handle_child_lock_off,
     }
 end
 

@@ -8,10 +8,10 @@ components:
         version: 1
       - id: switch
         version: 1
-      # Cuando crees la custom capability ecoMode y actives ENABLE_CUSTOM_CAPS en
-      # init.lua, descomenta esta línea con tu namespace real:
-      # - id: REPLACE_NAMESPACE.ecoMode
-      #   version: 1
+      - id: moneymedia27295.ecoMode
+        version: 1
+      - id: moneymedia27295.childLock
+        version: 1
 preferences:
   - name: "deviceIp"
     title: "IP del termostato"
